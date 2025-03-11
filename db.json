@@ -1,0 +1,209 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "password": "password123"
+    },
+    {
+      "id": "2",
+      "name": "Jane",
+      "email": "jae@example.com",
+      "password": "password456"
+    },
+    {
+      "id": "c40b",
+      "name": "Yerasyl",
+      "email": "erasyl@example.com",
+      "password": "1234567"
+    },
+    {
+      "id": "763c",
+      "name": "Adilet",
+      "email": "Adi1k@example.com",
+      "password": "123456789"
+    },
+    {
+      "id": "26a1",
+      "name": "Terrr",
+      "email": "Terr@example.com",
+      "password": "Terr1234"
+    },
+    {
+      "id": "47f6",
+      "name": "Kuka",
+      "email": "kuka@gmail.com",
+      "password": "789"
+    },
+    {
+      "id": "373c",
+      "name": "adi",
+      "email": "adlet.murat.04@bk.ru",
+      "password": "123546as"
+    },
+    {
+      "id": "d228",
+      "name": "Yera",
+      "email": "ereke@example.com",
+      "password": "123"
+    },
+    {
+      "id": "3d55",
+      "name": "Opasd",
+      "email": "AKsd@example.com",
+      "password": "1231684"
+    },
+    {
+      "id": "3c80",
+      "name": "Trreac",
+      "email": "Reac@example.com",
+      "password": "123"
+    }
+  ],
+  "books": [
+    {
+      "id": "1",
+      "title": "The Great Gatsby",
+      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKi5lknrw7SIwZ01RQRqyvtXz2bFxrUsGVpA&s",
+      "description": "A novel set in the Jazz Age.",
+      "genre": "Fantasy",
+      "price": "1500"
+    },
+    {
+      "id": "2",
+      "title": "1984",
+      "coverImage": "https://anylang.net/sites/default/files/styles/book_image/public/covers/1984.jpg?itok=IVpqqKj5",
+      "description": "A dystopian novel about totalitarianism.",
+      "genre": "Horror",
+      "price": "1800"
+    },
+    {
+      "id": "3",
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROXcRkMBWPAQHM1il6uE4VDvXCmvnef2op1w&s",
+      "description": "The first book in the epic fantasy series about the quest to destroy the One Ring.",
+      "genre": "Fantasy",
+      "price": "1800"
+    },
+    {
+      "id": "4",
+      "title": "The Shining",
+      "coverImage": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1353277730i/11588.jpg",
+      "description": "A horror novel about a family trapped in a haunted hotel.",
+      "genre": "Horror",
+      "price": "1700"
+    },
+    {
+      "id": "5",
+      "title": "Pride and Prejudice",
+      "coverImage": "https://m.media-amazon.com/images/I/712P0p5cXIL._AC_UF1000,1000_QL80_.jpg",
+      "description": "A classic romantic novel about social class and relationships.",
+      "genre": "Romance",
+      "price": "1400"
+    },
+    {
+      "id": "6",
+      "title": "Dune",
+      "coverImage": "https://m.media-amazon.com/images/I/81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg",
+      "description": "A science fiction novel about the politics of a desert planet and its precious resource.",
+      "genre": "Science Fiction",
+      "price": "2000"
+    },
+    {
+      "id": "7",
+      "title": "A Game of Thrones",
+      "coverImage": "https://m.media-amazon.com/images/I/71Jzezm8CBL._AC_UF1000,1000_QL80_.jpg",
+      "description": "A fantasy novel set in a world where noble families vie for control of the Iron Throne.",
+      "genre": "Fantasy",
+      "price": "2200"
+    },
+    {
+      "id": "8",
+      "title": "The Handmaid's Tale",
+      "coverImage": "https://m.media-amazon.com/images/I/91XT4tkFFeL._UF1000,1000_QL80_.jpg",
+      "description": "A dystopian novel about a totalitarian society where women have no rights.",
+      "genre": "Science Fiction",
+      "price": "1500"
+    },
+    {
+      "id": "9",
+      "title": "The Picture of Dorian Gray",
+      "coverImage": "https://m.media-amazon.com/images/M/MV5BMTY5ODc1NjU5N15BMl5BanBnXkFtZTcwMTUyNDg3Mg@@._V1_FMjpg_UX1000_.jpg",
+      "description": "A novel about vanity, morality, and the supernatural.",
+      "genre": "Horror",
+      "price": "1600"
+    },
+    {
+      "id": "10",
+      "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+      "coverImage": "https://m.media-amazon.com/images/I/91KPfMSahBL.jpg",
+      "description": "A classic fantasy novel about four children who discover a magical world.",
+      "genre": "Fantasy",
+      "price": "1900"
+    }
+  ],
+  "cart": [],
+  "checkout": [
+    {
+      "id": "7054",
+      "items": [
+        {
+          "id": "f0b3",
+          "title": "1984",
+          "image": "https://anylang.net/sites/default/files/styles/book_image/public/covers/1984.jpg?itok=IVpqqKj5",
+          "price": "1800",
+          "info1": "A dystopian novel about totalitarianism."
+        },
+        {
+          "id": "0764",
+          "title": "4865",
+          "image": "https://anylang.net/sites/default/files/styles/book_image/public/covers/1984.jpg?itok=IVpqqKj5",
+          "price": "800",
+          "info1": "A dystopian novel about totalitarianism."
+        }
+      ],
+      "totalPrice": "01800800"
+    },
+    {
+      "id": "8679",
+      "items": [
+        {
+          "id": "f0b3",
+          "title": "1984",
+          "image": "https://anylang.net/sites/default/files/styles/book_image/public/covers/1984.jpg?itok=IVpqqKj5",
+          "price": "1800",
+          "info1": "A dystopian novel about totalitarianism."
+        },
+        {
+          "id": "0764",
+          "title": "4865",
+          "image": "https://anylang.net/sites/default/files/styles/book_image/public/covers/1984.jpg?itok=IVpqqKj5",
+          "price": "800",
+          "info1": "A dystopian novel about totalitarianism."
+        }
+      ],
+      "totalPrice": "01800800"
+    },
+    {
+      "id": "f072",
+      "items": [
+        {
+          "id": "47ee",
+          "title": "The Great Gatsby",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKi5lknrw7SIwZ01RQRqyvtXz2bFxrUsGVpA&s",
+          "price": "1500",
+          "info1": "A novel set in the Jazz Age."
+        },
+        {
+          "id": "a003",
+          "title": "1984",
+          "image": "https://anylang.net/sites/default/files/styles/book_image/public/covers/1984.jpg?itok=IVpqqKj5",
+          "price": "1800",
+          "info1": "A dystopian novel about totalitarianism."
+        }
+      ],
+      "totalPrice": 3300
+    }
+  ]
+}

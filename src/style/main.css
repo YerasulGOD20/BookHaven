@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Prata&display=swap');
+
+.content{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 215px 30px;
+
+}
+
+.title{
+    
+    width: 598px;
+    min-height: 206px;
+
+}
+h2{
+    font-family: "Prata", serif;
+    font-weight: 400;
+    font-size: 75px;
+    line-height: 1,1;
+}
+
+p{
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 19px;
+    margin-top: 10spx;
+}
+

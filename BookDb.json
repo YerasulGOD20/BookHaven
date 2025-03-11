@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "coverImage": "https://example.com/gatsby.jpg",
+      "description": "A novel set in the Jazz Age."
+    },
+    {
+      "id": 2,
+      "title": "1984",
+      "author": "George Orwell",
+      "coverImage": "https://example.com/1984.jpg",
+      "description": "A dystopian novel about totalitarianism."
+    }
+  ]
+  

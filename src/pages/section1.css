@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Prata&display=swap');
+
+
+.section_info{
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+    column-gap: 30px;
+}
+
+.container{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.NavBar {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.content__info{
+    width: 600px;
+    height: 580px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.section-img{
+    width: 600px;
+    height: 580px;
+    object-fit: contain;
+}
+
+h1{
+    color: #212121;
+    margin-top: 105px;
+    font-family: 'Prata', serif;
+    font-size: 40px;
+    font-weight: 500;
+}
+
+p{
+    font-size: 17px;
+    font-family: 'Lato', sans-serif;
+}
+.sub_info{
+    color: #686662;
+    margin-top: 30px;
+    line-height: 1.6;
+}
+
+.color{
+    margin-top: 20px;
+    color: #C0AF84;
+    font-weight: 700;
+}
+
+.buttons{
+    margin-top: 30px;
+    display: flex;
+    column-gap: 15px;
+    
+}
+
+.btnLog{
+    width: 93px;
+    height: 38px;
+    background-color: #C0AF84;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    color: whitesmoke;
+}
+
+
+.btnSign{
+    width: 119px;
+    height: 38px;
+    border: 1px solid black;
+    color: #212121;
+    font-weight: 500;
+}
+
+
+
