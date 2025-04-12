@@ -3,12 +3,13 @@ import '../pages/section2.css';
 import SideBar from "../componets/sideBar";
 import Product from "../componets/product";
 import Nav from "../menu"
+import { FaSearch } from 'react-icons/fa';
 
 function Section2() {
     const [books, setBooks] = useState([]); 
     const [error, setError] = useState(null); 
     const [selectedGenre, setSelectedGenre] = useState(null);
-
+    const [searchTerm, setSearchTerm] = useState("");
     const fetchBooks = useCallback(async () => {
         try {
             const response = await fetch('http://localhost:5002/books');
@@ -40,15 +41,34 @@ function Section2() {
     useEffect(() => {
         fetchBooks();
     }, [fetchBooks]);
+    const filteredBooks = books.filter(book =>
+        book.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     return (
         <>
             <Nav/>
             <SideBar onSelectGenre={handleSelectGenre} />
+
+            {/* 🔍 Поле для поиска */}
+            <div className="search-bar">
+                <input
+                    type="text"
+                    placeholder="Поиск по названию..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                 />
+                 <span className="search-icon">
+                    <FaSearch />
+                </span>
+            </div>
+
+
             {error && <p className="error-message">{error}</p>}
+
             <div className="product">
-                {books.length > 0 ? (
-                    books.map((book) => (
+                {filteredBooks.length > 0 ? (
+                    filteredBooks.map((book) => (
                         <div className="product-item" key={book.id}>
                             <Product
                                 key={book.id}
@@ -60,7 +80,7 @@ function Section2() {
                         </div>
                     ))
                 ) : (
-                    <p>Loading books...</p> 
+                    <p>Книги не найдены...</p> 
                 )}
             </div>
         </>

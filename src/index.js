@@ -14,7 +14,7 @@ import {
 } from "react-router-dom";
 import StoreInfo from './pages/store_info';
 import Cart from './pages/cart'
-
+import Contact from './pages/ContactUs'
 
 const router = createBrowserRouter([
   {
@@ -40,6 +40,11 @@ const router = createBrowserRouter([
   {
     path: "/cart",
     element: <Cart/>
+  }
+  ,
+  {
+    path: "/contactus",
+    element: <Contact/>
   }
 ]);
 

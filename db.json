@@ -59,6 +59,12 @@
       "name": "Trreac",
       "email": "Reac@example.com",
       "password": "123"
+    },
+    {
+      "id": "2258",
+      "name": "Alizh",
+      "email": "Alizh@gmail.com",
+      "password": "123456"
     }
   ],
   "books": [
@@ -143,7 +149,22 @@
       "price": "1900"
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "id": "a95a",
+      "title": "The Great Gatsby",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKi5lknrw7SIwZ01RQRqyvtXz2bFxrUsGVpA&s",
+      "price": "1500",
+      "info1": "A novel set in the Jazz Age."
+    },
+    {
+      "id": "ae7e",
+      "title": "1984",
+      "image": "https://anylang.net/sites/default/files/styles/book_image/public/covers/1984.jpg?itok=IVpqqKj5",
+      "price": "1800",
+      "info1": "A dystopian novel about totalitarianism."
+    }
+  ],
   "checkout": [
     {
       "id": "7054",
@@ -197,6 +218,26 @@
         },
         {
           "id": "a003",
+          "title": "1984",
+          "image": "https://anylang.net/sites/default/files/styles/book_image/public/covers/1984.jpg?itok=IVpqqKj5",
+          "price": "1800",
+          "info1": "A dystopian novel about totalitarianism."
+        }
+      ],
+      "totalPrice": 3300
+    },
+    {
+      "id": "88ba",
+      "items": [
+        {
+          "id": "a95a",
+          "title": "The Great Gatsby",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKi5lknrw7SIwZ01RQRqyvtXz2bFxrUsGVpA&s",
+          "price": "1500",
+          "info1": "A novel set in the Jazz Age."
+        },
+        {
+          "id": "ae7e",
           "title": "1984",
           "image": "https://anylang.net/sites/default/files/styles/book_image/public/covers/1984.jpg?itok=IVpqqKj5",
           "price": "1800",
