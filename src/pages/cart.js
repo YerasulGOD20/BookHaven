@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../pages/cart.css"; // Стиль для корзины
-
+import "../pages/cart.css"; 
 function Cart() {
-    const [cartItems, setCartItems] = useState([]); // Хранит товары в корзине
-    const [totalPrice, setTotalPrice] = useState(0); // Общая стоимость корзины (начальное значение 0)
+    const [cartItems, setCartItems] = useState([]); 
+    const [totalPrice, setTotalPrice] = useState(0); 
     const navigate = useNavigate();
 
     useEffect(() => {
         const fetchCartItems = async () => {
             try {
-                const response = await fetch("http://localhost:5002/cart"); // Запрос на сервер для получения корзины
+                const response = await fetch("http://localhost:5002/cart"); 
                 const data = await response.json();
                 setCartItems(data);
                 calculateTotalPrice(data);
@@ -22,17 +21,17 @@ function Cart() {
         fetchCartItems();
     }, []);
 
-    // Рассчитываем общую цену
+    
     const calculateTotalPrice = (items) => {
-      const total = items.reduce((sum, item) => sum + parseFloat(item.price), 0); // Преобразуем в число
+      const total = items.reduce((sum, item) => sum + parseFloat(item.price), 0); 
       setTotalPrice(total);
     };
 
-    // Удаляем товар из корзины
+    
     const handleRemoveItem = async (id) => {
         try {
             const response = await fetch(`http://localhost:5002/cart/${id}`, {
-                method: "DELETE", // Отправляем запрос на сервер для удаления товара
+                method: "DELETE", 
             });
             if (response.ok) {
                 const updatedCart = cartItems.filter((item) => item.id !== id);
@@ -44,10 +43,10 @@ function Cart() {
         }
     };
 
-    // Обрабатываем оформление заказа
+    
     const handleCheckout = async () => {
         try {
-            // Отправляем данные о заказе на сервер или обрабатываем оплату
+            
             const response = await fetch("http://localhost:5002/checkout", {
                 method: "POST",
                 headers: {
@@ -57,15 +56,15 @@ function Cart() {
             });
             if (response.ok) {
                 alert("Thank you for your purchase!");
-                setCartItems([]); // Очищаем корзину после оформления заказа
-                navigate("/"); // Перенаправляем на главную страницу
+                setCartItems([]); 
+                navigate("/"); 
             }
         } catch (error) {
             console.error("Error during checkout:", error);
         }
     };
 
-    // Функция для безопасного форматирования цены
+    
     const formatPrice = (price) => {
         return !isNaN(price) ? parseFloat(price).toFixed(2) : "0.00";
     };
@@ -77,7 +76,7 @@ function Cart() {
                 <div>
                     <ul className="cart-items">
                         {cartItems.map((item) => {
-                            const formattedPrice = formatPrice(item.price); // Форматируем цену
+                            const formattedPrice = formatPrice(item.price); 
                             return (
                                 <li key={item.id} className="cart-item">
                                     <img src={item.image} alt={item.title} className="cart-item-image" />
