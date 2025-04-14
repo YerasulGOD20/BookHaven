@@ -23,7 +23,7 @@ function Main(){
     return (
         <>
             <main 
-                style={{backgroundImage: `url(${bg})`, height: '100vh', backgroundSize: 'cover', backgroundRepeat: 'no-repeat',
+                style={{backgroundImage: `url(${bg})`, height: '150vh', backgroundSize: 'cover', backgroundRepeat: 'no-repeat',
                 
             }}
             >

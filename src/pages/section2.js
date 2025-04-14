@@ -54,7 +54,7 @@ function Section2() {
             <Nav/>
             <SideBar onSelectGenre={handleSelectGenre} />
 
-            {/* 🔍 Поле для поиска */}
+            {}
             <div className="search-bar">
                 <input
                     type="text"

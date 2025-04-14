@@ -64,25 +64,9 @@ const Contact = () => {
       </main>
 
       <footer className="contact-footer">
-        <div>
-          <strong>BookHaven</strong><br />
-          A club for book lovers who value quality time.
-        </div>
-        <div>
-          <strong>Company</strong><br />
-          Home<br />
-          Audio<br />
-          Comics<br />
-          Children<br />
-          My Books
-        </div>
-        <div>
-          <strong>Important Links</strong><br />
-          Terms of Use<br />
-          Subscription Terms<br />
-          Guidelines<br />
-          Help
-        </div>
+      <div style={{ textAlign: 'center', marginTop: '40px', padding: '20px', color: '#888' }}>
+    © 2025 BookHaven. All rights reserved. | support@bookhaven.com
+</div>
       </footer>
     </div>
   );

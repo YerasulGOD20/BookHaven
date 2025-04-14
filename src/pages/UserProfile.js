@@ -1,23 +1,36 @@
-import React, { useEffect, useState, useMemo } from 'react';
-import '../pages/UserProfile.css';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaShoppingBag } from "react-icons/fa";
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { storage } from '../firebase'
+import '../pages/UserProfile.css';
+import Nav from "../menu"
+import '../pages/UserProfile.css';
 import { Link } from 'react-router-dom';
+import { FaShoppingBag } from "react-icons/fa";
 
 const ProfilePage = () => {
     const [user, setUser] = useState(null);
     const [error, setError] = useState(null);
+    const [selectedImage, setSelectedImage] = useState(null);  
+    const navigate = useNavigate();    
     const [isEditing, setIsEditing] = useState(false); 
     const [editedName, setEditedName] = useState('');
     const [editedEmail, setEditedEmail] = useState('');
-    const navigate = useNavigate();
+
+
+    useEffect(() => {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (currentUser?.id) {
+            fetchUserProfile(currentUser.id);
+        } else {
+            setError('No user is logged in');
+        }
+    }, []);
 
     const fetchUserProfile = async (userId) => {
         try {
             const response = await fetch(`http://localhost:5002/users/${userId}`); 
-            if (!response.ok) {
-                throw new Error('Failed to fetch user data');
-            }
+            if (!response.ok) throw new Error('Failed to fetch user data');
             const data = await response.json();
             setUser(data);
             setEditedName(data.name); 
@@ -28,104 +41,131 @@ const ProfilePage = () => {
     };
 
     const handleSaveChanges = async () => {
-        if (user) {
-            try {
-                const response = await fetch(`http://localhost:5002/users/${user.id}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        ...user,
-                        name: editedName,
-                        email: editedEmail
-                    })
-                });
-                if (!response.ok) {
-                    throw new Error('Failed to update user data');
-                }
-                const updatedUser = await response.json();
-                setUser(updatedUser); 
-                setIsEditing(false); 
-            } catch (error) {
-                setError(error.message);
-            }
+        if (!user) return;
+        try {
+            const response = await fetch(`http://localhost:5002/users/${user.id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    ...user,
+                    name: editedName,
+                    email: editedEmail
+                })
+            });
+            if (!response.ok) throw new Error('Failed to update user data');
+            const updatedUser = await response.json();
+            setUser(updatedUser); 
+            setIsEditing(false); 
+        } catch (error) {
+            setError(error.message);
+        }
+    };
+    /*
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            setSelectedImage(file);  // Store the selected file
         }
     };
 
-    const handleSignOut = () => {
+    const handleImageUpload = async (file) => {
+        if (!file) return;
+      
+        const imageRef = ref(storage, `profile-pictures/${file.name}`); 
+        await uploadBytes(imageRef, file); 
+      
+        const downloadURL = await getDownloadURL(imageRef); 
+        return downloadURL;
+        await fetch(`http://localhost:5002/users/${user.id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ...user,
+              profilePicture: downloadURL 
+            })
+          });
+          
+          setUser({ ...user, profilePicture: downloadURL });
+      };
+      */
+
+      const handleSignOut = () => {
         localStorage.removeItem('currentUser');
         setUser(null);
-        setTimeout(() => {
-            navigate('/'); 
-        }, 3000); 
+        setTimeout(() => navigate('/'), 3000); 
     };
 
     useEffect(() => {
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        if (currentUser && currentUser.id) {
+        if (currentUser?.id) {
             fetchUserProfile(currentUser.id);
         } else {
             setError('No user is logged in');
         }
     }, []);
 
-    const userInfo = useMemo(() => {
-        if (!user) return null;
-        return (
-            <div>
-                <p><strong>Name:</strong> <span className="user-info">{user.name}</span></p>
-                <p><strong>Email:</strong> <span className="user-info">{user.email}</span></p>
-            </div>
-        );
-    }, [user]);
-
-    const loadingMessage = useMemo(() => {
-        return <p className="loading-message">Loading user data...</p>;
-    }, []);
-
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
+    if (error) return <div>Error: {error}</div>;
 
     return (
-        <div className="profile-page">
-            <h1>User Profile</h1>
-            {user ? (
-                <div>
-                    {isEditing ? (
-                        <>
-                            <p><strong>Name:</strong> 
-                                <input 
-                                    type="text" 
-                                    value={editedName} 
-                                    onChange={(e) => setEditedName(e.target.value)} 
-                                />
-                            </p>
-                            <p><strong>Email:</strong> 
-                                <input 
-                                    type="email" 
-                                    value={editedEmail} 
-                                    onChange={(e) => setEditedEmail(e.target.value)} 
-                                />
-                            </p>
-                            <button onClick={handleSaveChanges}>Save Changes</button>
-                            <button onClick={() => setIsEditing(false)}>Cancel</button>
-                        </>
-                    ) : (
-                        <>
-                            {userInfo}
-                            <button onClick={() => setIsEditing(true)}>Edit Profile</button>
-                        </>
-                    )}
-                    <button onClick={handleSignOut}>Sign Out</button>
-                    <Link to='/cart'><button><FaShoppingBag/></button></Link>
+        <>
+        <Nav className="NavBar"/>
+        <div className="profile-sidebar">
+                <img
+                    src={user?.profilePicture || "/default-profile.png"}
+                    alt="Profile"
+                    className="profile-pic"
+                />
+                {isEditing ? (
+                    <>
+                        <input
+                            type="text"
+                            value={editedName}
+                            onChange={(e) => setEditedName(e.target.value)}
+                        />
+                        <input
+                            type="email"
+                            value={editedEmail}
+                            onChange={(e) => setEditedEmail(e.target.value)}
+                        />
+                        <button onClick={handleSaveChanges}>Save</button>
+                        <button onClick={() => setIsEditing(false)}>Cancel</button>
+                    </>
+                ) : (
+                    <>
+                        <h2>{user?.name}</h2>
+                        <p>{user?.email}</p>
+                        <button onClick={() => setIsEditing(true)}>Edit Profile</button>
+                    </>
+                )}
+                <button onClick={handleSignOut}>Sign Out</button>
+                <Link to="/cart"><button><FaShoppingBag /></button></Link>
+            </div>
+            <div className="profile-content">
+                <div className="section-box">
+                    <h2>Order History</h2>
+                    {user?.orders?.length > 0 ? (
+                        <ul>
+                            {user.orders.map(order => (
+                                <li key={order.id}>Order #{order.id} — {order.status}</li>
+                            ))}
+                        </ul>
+                    ) : <p>No orders found.</p>}
                 </div>
-            ) : (
-                loadingMessage
-            )}
-        </div>
+            </div>
+    </>
     );
 };
 
 export default ProfilePage;
+
+
+/*{}
+                <input
+                    type="file"
+                    onChange={handleImageChange}
+                    accept="image/*"
+                />
+                
+                {}
+                <button onClick={handleImageUpload}>Upload Profile Picture</button> */
+                
