@@ -71,7 +71,7 @@ function Nav() {
                                         onMouseEnter={onMouseEnter}
                                         onMouseLeave={onMouseLeave}
                                     >
-                                        Books of the month
+                                        Catalog
                                     </Link>
                                 </li>
                                 <li>
@@ -84,13 +84,13 @@ function Nav() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <a
-                                        href="#!"
+                                    <Link
+                                        to="/contactus"
                                         onMouseEnter={onMouseEnter}
                                         onMouseLeave={onMouseLeave}
                                     >
                                         Contact us
-                                    </a>
+                                        </Link>
                                 </li>
                             </ul>
                         </nav>

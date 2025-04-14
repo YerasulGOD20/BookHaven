@@ -1,0 +1,117 @@
+.contact-container {
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f5dc;
+    color: #333;
+  }
+  
+  .contact-main {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #f5f5dc;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  
+  .contact-section {
+    margin-bottom: 40px;
+  }
+  
+  .contact-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: #444;
+  }
+  
+  .contact-section p,
+  .contact-section a {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  
+  .social-icons img {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .social-icons img:hover {
+    transform: scale(1.15);
+  }
+  
+  .bot-button {
+    background-color: #007bff;
+    color: #f5f5dc;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .bot-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .faq-item {
+    background-color: #C0AF84;
+    padding: 18px 22px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+  }
+  
+  .faq-item:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .faq-question {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #222;
+  }
+  
+  .faq-answer {
+    margin-top: 10px;
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .contact-footer {
+    background-color: #e1c9a0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 32px;
+    font-size: 0.95rem;
+    gap: 20px;
+    color: #000;
+    margin-top: 40px;
+    border-top: 2px solid #d1b98a;
+  }
+  
+  .contact-footer div {
+    flex: 1 1 200px;
+    line-height: 1.6;
+  }
+  
+  

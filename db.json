@@ -141,7 +141,95 @@
       "description": "A classic fantasy novel about four children who discover a magical world.",
       "genre": "Fantasy",
       "price": "1900"
-    }
+    },
+      {
+        "id": "11",
+        "title": "The Hound of the Baskervilles",
+        "coverImage": "https://m.media-amazon.com/images/I/81OQCVzOZpL.jpg",
+        "description": "Sherlock Holmes investigates a mysterious death tied to an old family curse.",
+        "genre": "Mystery",
+        "price": "1700"
+      },
+      {
+        "id": "12",
+        "title": "The Girl with the Dragon Tattoo",
+        "coverImage": "https://m.media-amazon.com/images/I/71TwkKZ+3sL.jpg",
+        "description": "A gripping thriller that combines murder mystery, family saga, and love story.",
+        "genre": "Thriller",
+        "price": "2100"
+      },
+      {
+        "id": "13",
+        "title": "Steve Jobs",
+        "coverImage": "https://m.media-amazon.com/images/I/81VStYnDGrL.jpg",
+        "description": "A biography of Apple co-founder Steve Jobs by Walter Isaacson.",
+        "genre": "Biography",
+        "price": "2500"
+      },
+      {
+        "id": "14",
+        "title": "Sapiens: A Brief History of Humankind",
+        "coverImage": "https://m.media-amazon.com/images/I/713jIoMO3UL.jpg",
+        "description": "Explores the history of humankind from the Stone Age to the modern era.",
+        "genre": "History",
+        "price": "2300"
+      },
+      {
+        "id": "15",
+        "title": "Salt, Fat, Acid, Heat",
+        "coverImage": "https://m.media-amazon.com/images/I/91DUgipPy9L.jpg",
+        "description": "A revolutionary cooking guide that breaks down the four elements of great cooking.",
+        "genre": "Cooking",
+        "price": "2000"
+      },
+      {
+        "id": "16",
+        "title": "Charlotte's Web",
+        "coverImage": "https://m.media-amazon.com/images/I/81WojUxbbFL.jpg",
+        "description": "A touching children’s story about friendship, life, and loss.",
+        "genre": "Children's Books",
+        "price": "1600"
+      },
+      {
+        "id": "17",
+        "title": "Batman: Year One",
+        "coverImage": "https://m.media-amazon.com/images/I/91KkWf50SoL.jpg",
+        "description": "A retelling of Batman’s early days in Gotham, exploring his origin story.",
+        "genre": "Comics",
+        "price": "1800"
+      },
+      {
+        "id": "18",
+        "title": "Humans of New York",
+        "coverImage": "https://m.media-amazon.com/images/I/91aFQbn0AxL.jpg",
+        "description": "A stunning collection of portraits and stories capturing the human spirit.",
+        "genre": "Art & Photography",
+        "price": "2700"
+      },
+      {
+        "id": "19",
+        "title": "The Lean Startup",
+        "coverImage": "https://m.media-amazon.com/images/I/81-QB7nDh4L.jpg",
+        "description": "A groundbreaking approach to building startups and launching products.",
+        "genre": "Business",
+        "price": "2200"
+      },
+      {
+        "id": "20",
+        "title": "Educated",
+        "coverImage": "https://m.media-amazon.com/images/I/81WojUxbbFL.jpg",
+        "description": "A memoir about a woman who leaves her survivalist family to pursue education.",
+        "genre": "Education",
+        "price": "2000"
+      },
+      {
+        "id": "21",
+        "title": "The Power of Now",
+        "coverImage": "https://m.media-amazon.com/images/I/71Aw7vPxLBL.jpg",
+        "description": "A spiritual guide to help discover the power and peace of living in the present moment.",
+        "genre": "Spirituality & Religion",
+        "price": "1900"
+      }
   ],
   "cart": [],
   "checkout": [
