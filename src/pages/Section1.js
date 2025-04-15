@@ -19,7 +19,7 @@ function Section1() {
     };
 
     const Leave = (e) => {
-        e.target.style.backgroundColor = '#C0AF84';
+        e.target.style.backgroundColor = '#fff';
         e.target.style.border = 'none';
     };
 
@@ -65,7 +65,10 @@ function Section1() {
                                 type="primary"
                                 className="btnLog"
                                 onMouseEnter={Enter}
-                                onMouseLeave={Leave}
+                                onMouseLeave={(e) => {
+                                    e.target.style.backgroundColor = 'white';
+                                    e.target.style.color = 'black';
+                                }}
                                 onClick={() => setIsSignInOpen(true)}
                             >
                                 Login

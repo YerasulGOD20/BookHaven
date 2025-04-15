@@ -70,19 +70,19 @@
   "books": [
     {
       "id": "1",
-      "title": "The Great Gatsby",
-      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKi5lknrw7SIwZ01RQRqyvtXz2bFxrUsGVpA&s",
-      "description": "A novel set in the Jazz Age.",
-      "genre": "Fantasy",
-      "price": "$ 1500"
+      "title": "Crime and Punishment",
+      "coverImage": "https://m.media-amazon.com/images/I/81EcXiV-9WL._SY522_.jpg",
+      "description": "Drawing upon experiences from his own prison days, Dostoyevsky recounts in feverish, compelling tones a psychological thriller",
+      "genre": "Mystery",
+      "price": "$ 1700"
     },
     {
       "id": "2",
-      "title": "1984",
-      "coverImage": "https://anylang.net/sites/default/files/styles/book_image/public/covers/1984.jpg?itok=IVpqqKj5",
-      "description": "A dystopian novel about totalitarianism.",
-      "genre": "Horror",
-      "price": "$ 1800"
+      "title": "War and Peace",
+      "coverImage": "https://m.media-amazon.com/images/I/81W6BFaJJWL._SY466_.jpg",
+      "description": "War and Peace centers broadly on Napoleon’s invasion of Russia in 1812",
+      "genre": "History",
+      "price": "$ 1900"
     },
     {
       "id": "3",
@@ -237,29 +237,7 @@
       "price": "$ 1900"
     }
   ],
-  "cart": [
-    {
-      "id": "a95a",
-      "title": "The Great Gatsby",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKi5lknrw7SIwZ01RQRqyvtXz2bFxrUsGVpA&s",
-      "price": "1500",
-      "info1": "A novel set in the Jazz Age."
-    },
-    {
-      "id": "ae7e",
-      "title": "1984",
-      "image": "https://anylang.net/sites/default/files/styles/book_image/public/covers/1984.jpg?itok=IVpqqKj5",
-      "price": "1800",
-      "info1": "A dystopian novel about totalitarianism."
-    },
-    {
-      "id": "23be",
-      "title": "1984",
-      "image": "https://anylang.net/sites/default/files/styles/book_image/public/covers/1984.jpg?itok=IVpqqKj5",
-      "price": "$ 1800",
-      "info1": "A dystopian novel about totalitarianism."
-    }
-  ],
+  "cart": [],
   "checkout": [
     {
       "id": "7054",

@@ -7,6 +7,7 @@
     align-items: center;
     padding-top: 100px;
     column-gap: 30px;
+    background-color: #fff;
 }
 
 .container{
@@ -67,12 +68,13 @@ p{
 }
 
 .btnLog{
-    width: 93px;
+    width: 119px;
     height: 38px;
-    background-color: #C0AF84;
+    background-color: #fff;
     font-family: 'Lato', sans-serif;
     font-weight: 500;
-    color: whitesmoke;
+    color: black;
+    border: 1px solid black;
 }
 
 

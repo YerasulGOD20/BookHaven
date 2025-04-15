@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useMemo } from 'react';   
 import '../pages/section2.css';
 import SideBar from "../componets/sideBar";
 import Product from "../componets/product";
@@ -7,7 +7,9 @@ import { FaSearch } from 'react-icons/fa';
 
 function Section2() {
     const [books, setBooks] = useState([]); 
-    const [error, setError] = useState(null); 
+    const [error, setError] = useState(null);
+    const [sortOption, setSortOption] = useState('');
+    const [sortByPriceAsc, setSortByPriceAsc] = useState(true);
     const [selectedGenre, setSelectedGenre] = useState(null);
     const [searchTerm, setSearchTerm] = useState("");
     const fetchBooks = useCallback(async () => {
@@ -65,9 +67,7 @@ function Section2() {
                  <span className="search-icon">
                     <FaSearch />
                 </span>
-            </div>
-
-
+            </div>            
             {error && <p className="error-message">{error}</p>}
 
             <div className="product">
