@@ -97,17 +97,17 @@ function Nav() {
                         <div className="icons">
                             <ul>
                                 <li>
-                                    <a href="#!">
+                                    <a href="https://www.facebook.com/BookHaven21?locale=ru_RU" target="_blank" rel="noreferrer">
                                         <img src={icon1} alt="Icon 1" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#!">
+                                    <a href="https://www.instagram.com/bookhaven.kz/" target="_blank" rel="noreferrer">
                                         <img src={icon2} alt="Icon 2" />
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#!">
+                                    <a href="https://x.com/bookhavenfans" target="_blank" rel="noreferrer">
                                         <img src={icon3} alt="Icon 3" />
                                     </a>
                                 </li>
