@@ -69,14 +69,6 @@
   ],
   "books": [
     {
-      "id": "1",
-      "title": "Crime and Punishment",
-      "coverImage": "https://m.media-amazon.com/images/I/81EcXiV-9WL._SY522_.jpg",
-      "description": "Drawing upon experiences from his own prison days, Dostoyevsky recounts in feverish, compelling tones a psychological thriller",
-      "genre": "Mystery",
-      "price": "$ 1700"
-    },
-    {
       "id": "2",
       "title": "War and Peace",
       "coverImage": "https://m.media-amazon.com/images/I/81W6BFaJJWL._SY466_.jpg",
@@ -235,6 +227,14 @@
       "description": "Amoral, cunning, ruthless, and instructive, this piercing work distills 3,000 years of the history of power into 48 well-explicated laws.",
       "genre": "Business",
       "price": "$ 2200"
+    },
+    {
+      "id": "22",
+      "title": "All Quiet on the Western Front",
+      "coverImage": "https://m.media-amazon.com/images/I/81t+rLoUAzL._SY522_.jpg",
+      "description": "I am young, I am twenty years old; yet I know nothing of life but despair, death, fear, and fatuous superficiality cast over an abyss of sorrow. . .",
+      "genre": "History",
+      "price": "$ 1900"
     }
   ],
   "cart": [],
