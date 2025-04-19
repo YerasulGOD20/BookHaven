@@ -6,7 +6,7 @@ class Book(models.Model):
     description = models.TextField()
     coverImage = models.URLField(default='https://example.com/default-image.jpg')
     price = models.CharField(max_length=50)
-    genre = models.CharField(max_length=50, default='Unknown')   # Пример: "$ 1800"
+    genre = models.CharField(max_length=50, default='Unknown')   
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

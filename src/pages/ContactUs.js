@@ -35,9 +35,9 @@ const Contact = () => {
         <section className="contact-section">
           <h2>Follow Us</h2>
           <div className="social-icons">
-            <a href="#"><img src="https://img.icons8.com/ios-filled/24/facebook--v1.png" alt="Facebook" /></a>
-            <a href="#"><img src="https://img.icons8.com/ios-filled/24/instagram-new.png" alt="Instagram" /></a>
-            <a href="#"><img src="https://img.icons8.com/ios-filled/24/telegram-app.png" alt="Telegram" /></a>
+            <a href="https://www.facebook.com/BookHaven21?locale=ru_RU" target="_blank" rel="noreferrer"><img src="https://img.icons8.com/ios-filled/24/facebook--v1.png" alt="Facebook" /></a>
+            <a href="https://www.instagram.com/bookhaven.kz/" target="_blank" rel="noreferrer"><img src="https://img.icons8.com/ios-filled/24/instagram-new.png" alt="Instagram" /></a>
+            <a href="https://x.com/bookhavenfans" target="_blank" rel="noreferrer"><img src="https://img.icons8.com/ios-filled/24/telegram-app.png" alt="Telegram" /></a>
           </div>
         </section>
 
