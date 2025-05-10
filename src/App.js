@@ -8,6 +8,7 @@ import { authenticateUser } from './api';
 import ProfilePage from './pages/UserProfile';
 import Section2 from './pages/section2';
 import Cart from './pages/cart';
+import SecurePrivateRoute from './pages/SecurePrivateRoute';
 
 function App() {
   const [user, setUser] = useState(null); 
@@ -27,7 +28,7 @@ function App() {
       <Nav onSignIn={handleSignIn} user={user} />
       <Routes>
         <Route path="/" element={<Main />} /> 
-        <Route path="/profile" element={<ProfilePage />} /> 
+        <Route path="/profile" element={<SecurePrivateRoute> <ProfilePage /> </SecurePrivateRoute>} />
         <Route path="/books" element={<Section2 />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>

@@ -74,7 +74,10 @@
       "coverImage": "https://m.media-amazon.com/images/I/81W6BFaJJWL._SY466_.jpg",
       "description": "War and Peace centers broadly on Napoleon’s invasion of Russia in 1812",
       "genre": "History",
-      "price": "$ 1900"
+      "price": "$ 1900",
+      "reviews": [
+        "Гуд"
+      ]
     },
     {
       "id": "3",
@@ -82,7 +85,11 @@
       "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROXcRkMBWPAQHM1il6uE4VDvXCmvnef2op1w&s",
       "description": "The first book in the epic fantasy series about the quest to destroy the One Ring.",
       "genre": "Fantasy",
-      "price": "$ 1800"
+      "price": "$ 1800",
+      "reviews": [
+        "хорошая книга",
+        "Классно"
+      ]
     },
     {
       "id": "4",
