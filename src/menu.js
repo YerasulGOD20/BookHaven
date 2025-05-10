@@ -1,149 +1,111 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import logo from './image/mylogo.png';
-import './style/nav.css';
-import './style/common.css';
-import icon1 from './image/facebook-16.png';
-import icon2 from './image/insta.png';
-import icon3 from './image/twit.png';
-import icon4 from './image/user.png';
-import { authenticateUser} from './api';
-import { AuthModal } from './componets/authmodal';
+import React, { useEffect, useState } from 'react';
+import './UserProfile.css';
+import { useNavigate } from 'react-router-dom';
+import { FaShoppingBag, FaCamera } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import Nav from "../menu";
+import { getUserProfile, updateUserProfile, changePassword, logoutUser } from '../api';
 
-function Nav() {
-    const [isSignInOpen, setIsSignInOpen] = useState(false);
+const ProfilePage = () => {
+    const [user, setUser] = useState(null);
+    const [error, setError] = useState(null);
+    const [isEditing, setIsEditing] = useState(false);
+    const [isChangingPassword, setIsChangingPassword] = useState(false);
+    const [editedName, setEditedName] = useState('');
+    const [editedEmail, setEditedEmail] = useState('');
+    const [oldPassword, setOldPassword] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [avatar, setAvatar] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [message, setMessage] = useState('');
     const navigate = useNavigate();
-    const currentUser = JSON.parse(localStorage.getItem('currentUser')); 
-    const onMouseEnter = (e) => {
-        e.target.style.color = '#C0AF84';
-    };
 
-    const onMouseLeave = (e) => {
-        e.target.style.color = 'whitesmoke';
-    };
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const userData = await getUserProfile();
+                setUser(userData);
+                setEditedName(userData.name || '');
+                setEditedEmail(userData.email || '');
+                setIsLoading(false);
+            } catch (error) {
+                if (error.message.includes('Session expired')) {
+                    localStorage.removeItem('currentUser');
+                    navigate('/');
+                }
+                setError(error.message);
+                setIsLoading(false);
+            }
+        };
 
-    const handleIconClick = () => {
-        if (currentUser) {
-            navigate('/profile'); 
+        const token = localStorage.getItem('accessToken');
+        if (!token) {
+            navigate('/');
         } else {
-            setIsSignInOpen(true); 
+            fetchUserData();
+        }
+    }, [navigate]);
+
+    const handlePhotoUpload = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setAvatar(reader.result);
+            };
+            reader.readAsDataURL(file);
         }
     };
 
-    const handleSignIn = async (e, email, password) => {
-        e.preventDefault();
+    const handleSaveChanges = async () => {
         try {
-            const user = await authenticateUser(email, password); 
-            localStorage.setItem('currentUser', JSON.stringify(user)); 
-            setIsSignInOpen(false); 
-            navigate('/profile'); 
+            const updatedUser = await updateUserProfile({
+                name: editedName,
+                email: editedEmail
+            });
+            
+            setUser(updatedUser);
+            setIsEditing(false);
+            
+            // Update local storage with new user data
+            localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+            
+            setMessage('Profile updated successfully!');
+            setTimeout(() => setMessage(''), 3000);
         } catch (error) {
-            alert(error.message); 
+            setError(error.message);
         }
     };
 
-    return (
-        <>
-            <header className="header">
-                <div className="container">
-                    <div className="header_row">
-                        <div
-                            className="logo"
-                            onClick={() => navigate('/')}
-                            style={{ cursor: 'pointer' }}
-                        >
-                            <img src={logo} alt="Logo" />
-                        </div>
-                        <nav className="header_nav">
-                            <ul>
-                                <li>
-                                    <Link
-                                        to="/AboutUs"
-                                        onMouseEnter={onMouseEnter}
-                                        onMouseLeave={onMouseLeave}
-                                    >
-                                        About us
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        to="/BooksOfMonth"
-                                        onMouseEnter={onMouseEnter}
-                                        onMouseLeave={onMouseLeave}
-                                    >
-                                        Catalog
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        to="/OurBookshop"
-                                        onMouseEnter={onMouseEnter}
-                                        onMouseLeave={onMouseLeave}
-                                    >
-                                        Our bookshop
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        to="/contactus"
-                                        onMouseEnter={onMouseEnter}
-                                        onMouseLeave={onMouseLeave}
-                                    >
-                                        Contact us
-                                        </Link>
-                                </li>
-                            </ul>
-                        </nav>
-                        <div className="icons">
-                            <ul>
-                                <li>
-                                    <a href="https://www.facebook.com/BookHaven21?locale=ru_RU" target="_blank" rel="noreferrer">
-                                        <img src={icon1} alt="Icon 1" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.instagram.com/bookhaven.kz/" target="_blank" rel="noreferrer">
-                                        <img src={icon2} alt="Icon 2" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://x.com/bookhavenfans" target="_blank" rel="noreferrer">
-                                        <img src={icon3} alt="Icon 3" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <button
-                                        onClick={handleIconClick}
-                                        style={{
-                                            background: 'none',
-                                            border: 'none',
-                                            padding: 0,
-                                            cursor: 'pointer',
-                                        }}
-                                    >
-                                        <img
-                                            src={icon4}
-                                            alt="Icon 4"
-                                            style={{ width: '24px' }}
-                                        />
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <AuthModal
-                isSignInOpen={isSignInOpen}
-                isSignUpOpen={false} 
-                closeSignIn={() => setIsSignInOpen(false)}
-                closeSignUp={() => {}} 
-                handleSignIn={handleSignIn}
-                handleSignUp={() => {}}
-                error={null}
-            />
-        </>
-    );
-}
+    const handlePasswordChange = async () => {
+        if (newPassword !== confirmPassword) {
+            setError('New passwords do not match');
+            return;
+        }
+        
+        try {
+            await changePassword(oldPassword, newPassword);
+            setIsChangingPassword(false);
+            setOldPassword('');
+            setNewPassword('');
+            setConfirmPassword('');
+            
+            setMessage('Password changed successfully!');
+            setTimeout(() => setMessage(''), 3000);
+        } catch (error) {
+            setError(error.message);
+        }
+    };
 
-export default Nav;
+    const handleSignOut = async () => {
+        try {
+            await logoutUser();
+            navigate('/');
+        } catch (error) {
+            console.error('Logout error:', error);
+            // Force logout on client side even if server fails
+            localStorage.removeItem('accessToken');
+            localStorage.removeItem('refreshToken');
+            localStorage.removeItem('currentUser');
+            navigate('/');
