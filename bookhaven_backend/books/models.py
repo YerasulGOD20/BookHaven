@@ -5,15 +5,14 @@ class Book(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     coverImage = models.URLField(default='https://example.com/default-image.jpg')
-    price = models.CharField(max_length=50)
+    price = models.IntegerField()
     genre = models.CharField(max_length=50, default='Unknown')   
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
-        # Подготовка данных
         data = {
-            "id": str(self.id),  # Преобразуем ID в строку
+            "id": str(self.id),  
             "title": self.title,
             "coverImage": self.coverImage,
             "description": self.description,
@@ -21,7 +20,6 @@ class Book(models.Model):
             "price": self.price
         }
 
-        # Проверяем, существует ли уже книга с таким ID в json-server
         try:
             check_response = requests.get(f"http://localhost:5002/books/{self.id}")
             if check_response.status_code == 200:

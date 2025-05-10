@@ -9,7 +9,7 @@ function Cart() {
     useEffect(() => {
         const fetchCartItems = async () => {
             try {
-                const response = await fetch("http://localhost:5002/cart"); 
+                const response = await fetch("http://localhost:5002/profile/cart"); 
                 const data = await response.json();
                 setCartItems(data);
                 calculateTotalPrice(data);
@@ -30,7 +30,7 @@ function Cart() {
     
     const handleRemoveItem = async (id) => {
         try {
-            const response = await fetch(`http://localhost:5002/cart/${id}`, {
+            const response = await fetch(`http://localhost:5002/profile/cart/${id}`, {
                 method: "DELETE", 
             });
             if (response.ok) {
