@@ -235,6 +235,14 @@
       "description": "I am young, I am twenty years old; yet I know nothing of life but despair, death, fear, and fatuous superficiality cast over an abyss of sorrow. . .",
       "genre": "History",
       "price": "$ 1900"
+    },
+    {
+      "id": "23",
+      "title": "The Beauty Myth: How Images of Beauty Are Used Against Women",
+      "coverImage": "https://m.media-amazon.com/images/I/61uej3a7zxL._SY466_.jpg",
+      "description": "The bestselling classic that redefined our view of the relationship between beauty and female identity.",
+      "genre": "Science Fiction",
+      "price": "1500"
     }
   ],
   "cart": [],
