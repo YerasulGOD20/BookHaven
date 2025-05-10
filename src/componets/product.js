@@ -24,7 +24,12 @@ function Product(props) {
         <div className="product-container">
             <div className="box">
                 <div className="product-desc">
-                    <img src={props.image} alt={props.title} />
+                    <img
+                        src={props.image}
+                        alt={props.title}
+                        onClick={props.onImageClick}
+                        style={{ cursor: "pointer" }}
+                    />
                     <p className="product-title">{props.title}</p>
                     <p className="product-info1">{props.info1}</p>
                     <div className="product-line"></div>
