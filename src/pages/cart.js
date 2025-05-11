@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../pages/cart.css"; 
+import Nav from '../menu';
+
 function Cart() {
     const [cartItems, setCartItems] = useState([]); 
     const [totalPrice, setTotalPrice] = useState(0); 
@@ -70,7 +72,8 @@ function Cart() {
     };
 
     return (
-        <div className="cart-container">
+        <><Nav className="NavBar" />
+         <div className="cart-container">
             <h1>Your Cart</h1>
             {cartItems.length > 0 ? (
                 <div>
@@ -105,6 +108,7 @@ function Cart() {
                 <p>Your cart is empty.</p>
             )}
         </div>
+        </>
     );
 }
 
