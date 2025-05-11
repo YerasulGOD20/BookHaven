@@ -11,7 +11,7 @@ function Cart() {
     useEffect(() => {
         const fetchCartItems = async () => {
             try {
-                const response = await fetch("http://localhost:5002/profile/cart"); 
+                const response = await fetch("http://localhost:5002/cart"); 
                 const data = await response.json();
                 setCartItems(data);
                 calculateTotalPrice(data);
@@ -32,7 +32,7 @@ function Cart() {
     
     const handleRemoveItem = async (id) => {
         try {
-            const response = await fetch(`http://localhost:5002/profile/cart/${id}`, {
+            const response = await fetch(`http://localhost:5002/cart/${id}`, {
                 method: "DELETE", 
             });
             if (response.ok) {
@@ -47,24 +47,34 @@ function Cart() {
 
     
     const handleCheckout = async () => {
-        try {
-            
-            const response = await fetch("http://localhost:5002/checkout", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ items: cartItems, totalPrice }),
-            });
-            if (response.ok) {
-                alert("Thank you for your purchase!");
-                setCartItems([]); 
-                navigate("/"); 
+    try {
+        // 1. Отправить заказ в /checkout
+        const response = await fetch("http://localhost:5002/checkout", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ items: cartItems, totalPrice }),
+        });
+
+        if (response.ok) {
+            // 2. Удалить товары из /cart по одному
+            for (const item of cartItems) {
+                await fetch(`http://localhost:5002/cart/${item.id}`, {
+                    method: "DELETE",
+                });
             }
-        } catch (error) {
-            console.error("Error during checkout:", error);
+
+            // 3. Очистить состояние и перейти на главную
+            setCartItems([]);
+            alert("Thank you for your purchase!");
+            navigate("/");
         }
-    };
+    } catch (error) {
+        console.error("Error during checkout:", error);
+    }
+};
+
 
     
     const formatPrice = (price) => {

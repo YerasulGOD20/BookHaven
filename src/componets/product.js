@@ -3,22 +3,33 @@ import { FaShoppingBag } from "react-icons/fa";
 import "../style/product.css";
 
 function Product(props) {
-    const addToCart = async (product) => {
-        try {
-            const response = await fetch("http://localhost:5002/cart", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(product),
-            });
-            if (response.ok) {
-                alert(`${product.title} added to cart!`);
-            }
-        } catch (error) {
-            console.error("Error adding item to cart:", error);
-        }
+    const addToCart = async () => {
+    const product = {
+        id: props.id, // обязательно уникальный
+        title: props.title,
+        price: props.price,
+        image: props.image
     };
+
+    try {
+        const response = await fetch("http://localhost:5002/cart", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(product),
+        });
+
+        if (response.ok) {
+            alert(`${product.title} added to cart!`);
+        } else {
+            console.error("Server error:", await response.text());
+        }
+    } catch (error) {
+        console.error("Error adding item to cart:", error);
+    }
+};
+
 
     return (
         <div className="product-container">
