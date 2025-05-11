@@ -34,7 +34,7 @@ function Product(props) {
                     <p className="product-info1">{props.info1}</p>
                     <div className="product-line"></div>
                     <div className="price-info">
-                        <p className="product-price">{props.price}</p>
+                        <p className="product-price">$ {props.price}</p>
                         <div className="product-btn">
                             <button onClick={() => addToCart(props)}>
                                 <FaShoppingBag />

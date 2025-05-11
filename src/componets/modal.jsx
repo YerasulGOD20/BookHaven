@@ -3,10 +3,10 @@ import "../style/modal.css";
 
 function Modal({ isOpen, onClose, product, onReviewAdd }) {
     const [reviewText, setReviewText] = useState("");
+    const [reviewRating, setReviewRating] = useState(5);  // ⭐ Новое состояние для оценки
     const [showReviews, setShowReviews] = useState(false);
     const [localReviews, setLocalReviews] = useState([]);
 
-    // Сбрасываем локальные отзывы при изменении выбранного продукта
     useEffect(() => {
         if (product) {
             setLocalReviews(product.reviews || []);
@@ -19,15 +19,18 @@ function Modal({ isOpen, onClose, product, onReviewAdd }) {
             return;
         }
 
-        // Добавляем новый отзыв в локальный список
-        const updatedReviews = [...localReviews, reviewText];
-        setLocalReviews(updatedReviews); // Обновляем локальное состояние отзывов
-        onReviewAdd(product.id, updatedReviews); // Передаем обновления в родительский компонент
+        const newReview = {
+            text: reviewText,
+            rating: reviewRating,
+        };
 
-        // Очищаем поле ввода
+        const updatedReviews = [...localReviews, newReview];
+        setLocalReviews(updatedReviews);
+        onReviewAdd(product.id, updatedReviews);
+
         setReviewText("");
+        setReviewRating(5);
 
-        // Отправляем изменения на сервер
         try {
             const updatedProduct = { ...product, reviews: updatedReviews };
 
@@ -64,10 +67,12 @@ function Modal({ isOpen, onClose, product, onReviewAdd }) {
                     <img src={product.coverImage} alt={product.title} />
                     <p className="modal-p">{product.description2}</p>
                 </div>
+
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <p className="modal-p"><strong>Price: </strong> ${product.price}</p>
+                    <p className="modal-p"><strong>Price:</strong> ${product.price}</p>
                     {product.rating && <p style={{ color: "black" }}><strong>Оценка:</strong> {product.rating} / 5</p>}
                 </div>
+
                 <div>
                     <h3 onClick={toggleShowReviews} style={{ cursor: "pointer", color: "black" }}>
                         {showReviews ? "Скрыть отзывы" : "Показать отзывы"}
@@ -77,11 +82,14 @@ function Modal({ isOpen, onClose, product, onReviewAdd }) {
                             {localReviews.length > 0 ? (
                                 <ul>
                                     {localReviews.map((review, index) => (
-                                        <li key={index} style={{ color: 'black' }}>{review}</li>
+                                        <li key={index} style={{ color: "black" }}>
+                                            <strong>Оценка:</strong> {review.rating} / 5<br />
+                                            {review.text}
+                                        </li>
                                     ))}
                                 </ul>
                             ) : (
-                                <p style={{ color: 'black' }}>Отзывов пока нет.</p>
+                                <p style={{ color: "black" }}>Отзывов пока нет.</p>
                             )}
                         </div>
                     )}
@@ -93,8 +101,17 @@ function Modal({ isOpen, onClose, product, onReviewAdd }) {
                         value={reviewText}
                         onChange={(e) => setReviewText(e.target.value)}
                     ></textarea>
+
+                    <label style={{ color: "black" }}>Оценка: </label>
+                    <select value={reviewRating} onChange={(e) => setReviewRating(Number(e.target.value))}>
+                        {[1, 2, 3, 4, 5].map((r) => (
+                            <option key={r} value={r}>{r}</option>
+                        ))}
+                    </select>
+
                     <button onClick={handleAddReview}>Добавить отзыв</button>
                 </div>
+
                 <button className="close-button" onClick={onClose}>
                     Закрыть
                 </button>

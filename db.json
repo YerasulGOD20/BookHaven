@@ -82,7 +82,21 @@
       "coverImage": "https://m.media-amazon.com/images/I/81W6BFaJJWL._SY466_.jpg",
       "description": "War and Peace centers broadly on NapoleonвЂ™s invasion of Russia in 1812",
       "genre": "History",
-      "price": 1900
+      "price": 1900,
+      "reviews": [
+        {
+          "text": "Хорошая книга",
+          "rating": 3
+        },
+        {
+          "text": "Гуд",
+          "rating": 5
+        },
+        {
+          "text": "хорошая книга",
+          "rating": 5
+        }
+      ]
     },
     {
       "id": "3",
