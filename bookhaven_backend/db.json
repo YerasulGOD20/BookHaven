@@ -267,6 +267,62 @@
       "title": "The Shining",
       "price": "1700",
       "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1353277730i/11588.jpg"
+    },
+    {
+      "id": "49b6",
+      "title": "War and Peace",
+      "image": "https://m.media-amazon.com/images/I/81W6BFaJJWL._SY466_.jpg",
+      "price": "1900",
+      "info1": "War and Peace centers broadly on Napoleon’s invasion of Russia in 1812"
+    },
+    {
+      "id": "09b0",
+      "title": "Crime and Punishment",
+      "image": "https://m.media-amazon.com/images/I/81EcXiV-9WL._SY522_.jpg",
+      "price": "1700",
+      "info1": "Drawing upon experiences from his own prison days, Dostoyevsky recounts in feverish, compelling tones a psychological thriller"
+    },
+    {
+      "id": "edbd",
+      "title": "The Shining",
+      "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1353277730i/11588.jpg",
+      "price": "1700",
+      "info1": "A horror novel about a family trapped in a haunted hotel."
+    },
+    {
+      "id": "b665",
+      "title": "Pride and Prejudice",
+      "image": "https://m.media-amazon.com/images/I/712P0p5cXIL._AC_UF1000,1000_QL80_.jpg",
+      "price": "1400",
+      "info1": "A classic romantic novel about social class and relationships."
+    },
+    {
+      "id": "686f",
+      "title": "Dune",
+      "image": "https://m.media-amazon.com/images/I/81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg",
+      "price": "2000",
+      "info1": "A science fiction novel about the politics of a desert planet and its precious resource."
+    },
+    {
+      "id": "6048",
+      "title": "War and Peace",
+      "image": "https://m.media-amazon.com/images/I/81W6BFaJJWL._SY466_.jpg",
+      "price": "1900",
+      "info1": "War and Peace centers broadly on Napoleon’s invasion of Russia in 1812"
+    },
+    {
+      "id": "dd00",
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROXcRkMBWPAQHM1il6uE4VDvXCmvnef2op1w&s",
+      "price": "1800",
+      "info1": "The first book in the epic fantasy series about the quest to destroy the One Ring."
+    },
+    {
+      "id": "f26e",
+      "title": "Dune",
+      "image": "https://m.media-amazon.com/images/I/81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg",
+      "price": "2000",
+      "info1": "A science fiction novel about the politics of a desert planet and its precious resource."
     }
   ],
   "checkout": [
